@@ -1,0 +1,59 @@
+@mixin pointer(){
+  cursor: pointer;
+}
+.descriptionButton{
+  background-color: #1f5364;
+  color:white;
+  border: 0.1em solid black;
+  height: 30px;
+  border-radius: 25px;
+  margin-top: 10px;
+  width: 130px;
+  &:hover{
+    width: 140px;
+    transition: 0.5s;
+    @include pointer
+  }
+}
+.description{
+
+  font-size: 14pt;
+  border-radius: 25px;
+  padding: 5px;
+  background-color: #eeeaea;
+  position: absolute;
+  width: 300px;
+  margin-bottom: 50px;
+  
+}
+.titleBlock{
+  font-size: 15pt;
+  margin: 5px;
+}
+.priceBlock{
+  margin-top: 10px;
+  font-size: 15pt;
+  display: flex;
+  justify-content: space-between;
+
+}
+.addToCartButton {
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 25px;
+  border:0.1em solid black;
+  height: 30px;
+  background-color: #1a5ed5;
+  color:white;
+  font-size: 15pt;
+  &:hover{
+    font-size: 14pt;
+    transition: 1s;
+    @include pointer
+  }
+}
+.descriptionLink{
+  font-size: 20pt;
+  font-weight: bold;
+
+}

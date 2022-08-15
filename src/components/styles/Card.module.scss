@@ -1,0 +1,23 @@
+$img-size:200px;
+@function borderSize(){
+  @return $img-size + 100;
+}
+
+.border{
+  border: 2px solid #6b6a6a;
+  padding: 15px;
+  margin: 15px;
+  width: borderSize();
+  border-radius: 25px;
+  text-align: center;
+
+  -webkit-box-shadow: 0px 0px 3px 3px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 3px 3px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 3px 3px rgba(34, 60, 80, 0.2);
+}
+.border{
+  &>img{
+    width: $img-size;
+    height: $img-size;
+  }
+}
