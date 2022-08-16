@@ -11,6 +11,7 @@ const ProductList = () => {
     useEffect(()=>{
         dispatch(fetchProducts())
     },[dispatch])
+
     return (
         <div className={classes.list}>
             {

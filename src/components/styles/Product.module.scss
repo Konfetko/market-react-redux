@@ -1,34 +1,33 @@
+@import "Consts";
+$img-size:200px;
 @mixin pointer(){
   cursor: pointer;
 }
-.descriptionButton{
-  background-color: #1f5364;
-  color:white;
-  border: 0.1em solid black;
-  height: 30px;
-  border-radius: 25px;
-  margin-top: 10px;
-  width: 130px;
-  &:hover{
-    width: 140px;
-    transition: 0.5s;
-    @include pointer
-  }
+@mixin frontBackCard(){
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .4s linear;
+}
+
+.image{
+  width: $img-size;
+  height: $img-size;
+  margin-left: $img-size/4;
 }
 .description{
-
-  font-size: 14pt;
+  font-size: 12pt;
   border-radius: 25px;
   padding: 5px;
   background-color: #eeeaea;
-  position: absolute;
   width: 300px;
   margin-bottom: 50px;
   
 }
 .titleBlock{
-  font-size: 15pt;
+  font-size: 16pt;
   margin: 5px;
+  height: 70px;
 }
 .priceBlock{
   margin-top: 10px;
@@ -43,7 +42,7 @@
   border-radius: 25px;
   border:0.1em solid black;
   height: 30px;
-  background-color: #1a5ed5;
+  background-color: $secondColor;
   color:white;
   font-size: 15pt;
   &:hover{
@@ -56,4 +55,28 @@
   font-size: 20pt;
   font-weight: bold;
 
+}
+
+
+.center{
+  height: $img-size;
+  .front{
+    @include frontBackCard;
+    transform: perspective(600px) rotateY(0deg);
+  }
+  .back{
+    @include frontBackCard;
+    transform: perspective(600px) rotateY(180deg);
+
+    .back-content{
+      text-align: center;
+      color: #333333;
+    }
+  }
+}
+.card:hover > .front{
+  transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+  transform: perspective(600px) rotateY(0deg);
 }

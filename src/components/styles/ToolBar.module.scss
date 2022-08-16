@@ -1,0 +1,50 @@
+@import 'Consts';
+@media (min-width: 1260px){
+  .button{
+    display: none;
+  }
+}
+
+.active{
+  transform:translateX(-5%);
+  transition:2s;
+}
+.hidden{
+  transform:translateX(-103.5%);
+  transition:2s;
+}
+.button{
+  position: fixed;
+  top:150px;
+  background-color: gray;
+  height: 50px;
+  width: 50px;
+  transform: translateX(500%);
+  &:hover{
+    cursor: pointer;
+  }
+}
+.toolBar{
+  text-align: center;
+  top:75px;
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  background-color: gainsboro;
+  font:$font;
+  font-size: 13pt;
+  .innerBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &>div{
+      margin-top: 20px;
+    }
+    &>ul{
+      list-style: none;
+      margin-right: 25%;
+    }
+
+  }
+}
+

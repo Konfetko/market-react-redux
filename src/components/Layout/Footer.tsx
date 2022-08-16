@@ -1,10 +1,12 @@
 import React from 'react';
+//@ts-ignore
+import classes from '../styles/Footer.module.scss'
 
 const Footer = () => {
     return (
-        <div>
-            
-        </div>
+        <footer className={classes.footer}>
+            какие-то данные
+        </footer>
     );
 };
 

@@ -1,0 +1,11 @@
+@import 'Consts';
+.footer{
+  color:white;
+  position: relative;
+  bottom:-10px;
+  left: -10px;
+  background-color: $secondColor;
+  margin-right: -18px;
+  box-shadow: 0px -1px 10px 5px gray;
+  height: 75px;
+}

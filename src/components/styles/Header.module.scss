@@ -1,0 +1,51 @@
+@import 'Consts';
+
+@mixin linkMix(){
+  &>a {
+    text-decoration: none;
+    color: black;
+    &:active {
+      text-decoration: red;
+    }
+  }
+}
+.header{
+  height: 75px;
+  background-color: $headerColor;
+  top:0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 5px 10px gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo{
+    margin-left: 5%;
+    font:$font;
+    font-size: 25pt;
+    @include linkMix;
+  }
+  .list{
+    list-style: none;
+    display: flex;
+    &>li{
+      margin: 10px;
+      font:$font;
+      font-size: 16pt;
+      font-weight: bold;
+      @include linkMix;
+
+    }
+    .userAccount{
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      border-radius: 50px;
+    }
+    .userFunc{
+      display: flex;
+    }
+  }
+}
