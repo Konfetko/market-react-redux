@@ -1,6 +1,16 @@
+$border-transition: 1s;
 .input{
   height: 25px;
-  width: 100%;
-  border:2px solid black;
+  width: 90%;
+  border:1px solid black;
   font-size: 12pt;
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+  transition: $border-transition;
+
+  &:focus{
+    outline: none;
+    border-radius: 25px;
+    transition: $border-transition;
+  }
 }

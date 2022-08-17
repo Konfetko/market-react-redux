@@ -17,7 +17,11 @@ const Selector = ({selectors,handleSelect}:ISelectorProps) => {
                 <select name="" id="" onChange={handleSelect}>
                     {
                         selectors.map((item)=>
-                            <option value={item.value}>{item.name}</option>
+                            <option
+                                key={item.name}
+                                value={item.value}>
+                                {item.name}
+                            </option>
                         )
                     }
                 </select>

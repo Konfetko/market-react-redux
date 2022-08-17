@@ -15,7 +15,9 @@ const ProductList = () => {
     return (
         <div className={classes.list}>
             {
-                store.products.map(x=><Product key={x.id} product={x}/>)
+                store.modifiedProducts.length===0
+                ?<h3>Товары отсутствуют</h3>
+                :store.modifiedProducts.map(x=><Product key={x.id} product={x}/>)
             }
 
         </div>

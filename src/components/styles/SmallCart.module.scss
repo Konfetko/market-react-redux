@@ -1,0 +1,14 @@
+@import "Consts";
+
+.cart{
+  font:$font;
+  background-color: $lightGray;
+  position: fixed;
+  top:100px;
+  right: 80px;
+  padding: 15px;
+  border-radius: 25px;
+  &:hover{
+    cursor: pointer;
+  }
+}

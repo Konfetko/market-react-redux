@@ -4,18 +4,19 @@ import Card from "../Card";
 // @ts-ignore
 import classes from '../styles/Product.module.scss'
 import {Link} from "react-router-dom";
+import {useAppDispatch} from "../../app/hooks";
+import {addToCart} from '../../store/product/cartSlice'
 
 export interface IProductProps{
     product:IProduct
 }
 
 const Product = ({product}:IProductProps) => {
-   // const [visibleDescription,setVisibleDescription] = useState(false)
-    const showDescription=()=>{
-        //setVisibleDescription(prev=>!prev)
-    }
-    const [s,setS] = useState(classes.flipContainer)
+   const dispatch = useAppDispatch()
 
+    const addProductToCart=()=>{
+       dispatch(addToCart(product))
+    }
 
     return (
         <Card >
@@ -62,7 +63,11 @@ const Product = ({product}:IProductProps) => {
                    <div>{product.price} руб.</div>
                </div>
                <div>
-                   <button className={classes.addToCartButton}>Добавить в корзину</button>
+                   <button
+                       onClick={addProductToCart}
+                       className={classes.addToCartButton}>
+                       Добавить в корзину
+                   </button>
                </div>
            </div>
         </Card>

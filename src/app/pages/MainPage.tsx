@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from "../../components/Products/ProductList";
 import Layout from "../../components/Layout/Layout";
 import ToolBar from "../../components/ToolBar/ToolBar";
+import SmallCart from "../../components/Products/SmallCart";
 
 const MainPage = () => {
 
@@ -9,6 +10,7 @@ const MainPage = () => {
         <Layout>
             <ProductList/>
             <ToolBar/>
+            <SmallCart/>
         </Layout>
     );
 };

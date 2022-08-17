@@ -1,0 +1,23 @@
+.categories{
+
+  list-style: none;
+  text-align: center;
+  margin-right: 20%;
+  &>li{
+    margin-top:5%;
+    cursor:pointer;
+    padding: 5px;
+    border-radius: 25px;
+    border-bottom: 1px solid black;
+    &:hover{
+      background-color: #eeeaea;
+    }
+  }
+
+}
+.title{
+   font-size: 14pt;
+ }
+.categoryBlock{
+  border:1px solid black;
+}
