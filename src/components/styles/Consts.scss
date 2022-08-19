@@ -1,4 +1,42 @@
 $font: 1.2em "Courier",Times, serif;
 $headerColor:#F345A4;
+$headerLiHoverColor: #f560ae;
 $secondColor:#1A5ED5;
-$lightGray:#cccaca;
+$lightGray: #ffffff;
+
+@mixin linkMix(){
+  &>a {
+    text-decoration: none;
+    color: black;
+    padding-inline: 10px;
+    &:active {
+      text-decoration: red;
+    }
+  }
+}
+@keyframes hide {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  99% {
+    display: block;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+@keyframes visible {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  99% {
+    display: block;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}

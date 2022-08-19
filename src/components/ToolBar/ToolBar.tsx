@@ -74,7 +74,11 @@ const ToolBar = () => {
                         {isOpenToolBar?"<<<":">>>"}
                     </div>
                 </div>
-                <button onClick={clearProducts}>Сбросить</button>
+                <button
+                    className={classes.clearButton}
+                    onClick={clearProducts}>
+                    Сбросить
+                </button>
             </div>
 
         </>

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {authorization, registration, logout, getUserState} from "../../store/user/userSlice";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {IUserState} from "../../models/IUserState";
+import {IUser} from "../../models/IUser";
 
 const LoginForm = () => {
     const state = useAppSelector(getUserState)
     const dispatch = useAppDispatch()
 
-    const[user,setUser] = useState<IUserState>({login:'',password:'',email:''})
+    const[user,setUser] = useState<IUser>({login:'',password:'',email:''})
     const setLogin=(e:React.ChangeEvent<HTMLInputElement>)=>{
         setUser({...user,login:e.target.value})
     }

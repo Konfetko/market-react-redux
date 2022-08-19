@@ -10,7 +10,6 @@ const MainPage = () => {
         <Layout>
             <ProductList/>
             <ToolBar/>
-            <SmallCart/>
         </Layout>
     );
 };

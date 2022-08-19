@@ -1,8 +1,8 @@
-import {IUserState} from "../../models/IUserState";
+import {IUser} from "../../models/IUser";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store";
 
-const initialState:IUserState={
+const initialState:IUser={
     id:-1,
     login:'',
     password:'',
@@ -12,13 +12,13 @@ export const userSlice = createSlice({
     name:'user',
     initialState,
     reducers:{
-        authorization(state,action:PayloadAction<IUserState>){
+        authorization(state,action:PayloadAction<IUser>){
             //TODO axios get login
             state.login=action.payload.login
             state.password=action.payload.password
             state.email=''
         },
-        registration(state,action:PayloadAction<IUserState>){
+        registration(state,action:PayloadAction<IUser>){
             //TODO axios get registration
             state = action.payload
         },
