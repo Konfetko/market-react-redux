@@ -4,6 +4,9 @@ $headerLiHoverColor: #f560ae;
 $secondColor:#1A5ED5;
 $lightGray: #ffffff;
 
+.content{
+  min-height: calc(100vh - 75px);
+}
 @mixin linkMix(){
   &>a {
     text-decoration: none;
@@ -24,13 +27,13 @@ $lightGray: #ffffff;
   }
   100% {
     display: none;
-    opacity: 0;
+
   }
 }
 @keyframes visible {
   0% {
     display: none;
-    opacity: 0;
+
   }
   99% {
     display: block;

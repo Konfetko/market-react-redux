@@ -13,7 +13,7 @@ const ProductList = () => {
     },[dispatch])
 
     return (
-        <div className={classes.list}>
+        <div className={classes.list + " "+classes.content}>
             {
                 store.modifiedProducts.length===0
                 ?<h3>Товары отсутствуют</h3>

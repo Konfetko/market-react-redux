@@ -13,7 +13,7 @@ const Selector = ({selectors,handleSelect}:ISelectorProps) => {
     return (
         <div>
             <div className={classes.sort}>
-                Сортировать по: <br/>
+                <p>Сортировать по: </p>
                 <select name="" id="" onChange={handleSelect}>
                     {
                         selectors.map((item)=>

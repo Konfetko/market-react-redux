@@ -4,17 +4,21 @@ import classes from '../styles/Input.module.scss'
 
 export interface IInputProps{
     title:string,
-    onChange:(event:React.ChangeEvent<HTMLInputElement>)=>void
+    secondClassName?:string,
+    type?:string,
+    onChange:(event:React.ChangeEvent<HTMLInputElement>)=>void,
+    onBlur?:()=>void
 }
 
-const Input = ({title,onChange}:IInputProps) => {
+const Input = ({title,onChange,secondClassName,type,onBlur}:IInputProps) => {
     return (
-        <div>
-            {title} <br/>
+        <div className={secondClassName}>
+            <p>{title}</p>
             <input
-                type="text"
+                type={type}
                 onChange={onChange}
                 className={classes.input}
+                onBlur={onBlur}
             />
         </div>
     );

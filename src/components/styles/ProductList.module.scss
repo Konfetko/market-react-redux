@@ -1,9 +1,9 @@
+@import 'Consts.module';
 .list{
   width: 800px;
   border:1px solid black;;
   display: grid;
-  margin: auto;
   grid-template-columns: repeat(2,1fr);
   margin-top: 75px;
-  min-height: 800px;
+  min-height: calc(100vh - 80px);
 }

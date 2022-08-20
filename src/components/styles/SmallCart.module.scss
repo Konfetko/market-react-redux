@@ -1,11 +1,13 @@
-@import "Consts";
+@import "Consts.module";
 
 
 .cartButton {
   border-radius: 25px;
   @include linkMix;
-
-  &:hover {
+  &>a{
+    padding: 25px;
+  }
+  & >a:hover {
     background-color: $headerLiHoverColor;
   }
 
@@ -108,10 +110,14 @@
 }
 
 .visible{
-  animation: visible 1s linear;
-  animation-fill-mode: forwards;
+
+  transition: 1s;
+  opacity: 1;
+  transform: translateX(-30%);
 }
 .hidden{
-  animation: hide 1s linear;
-  animation-fill-mode: forwards;
+
+  transform: translateX(150%);
+  transition: 1s;
+  opacity: 0;
 }

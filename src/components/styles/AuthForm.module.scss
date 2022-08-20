@@ -1,0 +1,39 @@
+@import 'Consts.module';
+.form{
+  position: absolute;
+  left: 30%;
+  top:15%;
+  .showPass{
+    margin-left: -3.5%;
+    margin-top: 3%;
+    width: 150px;
+  }
+  .buttons{
+    div button{
+      width: 100%;
+      margin-top: 5%;
+      height: 30px;
+      font:$font;
+      font-size: 13pt;
+      border-radius: 15px;
+      border:1px solid black;
+      background-color: transparent;
+      &:hover{
+        background-color: gainsboro;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.second{
+
+  p{
+    font:$font;
+  }
+  input{
+    width: 30%;
+    min-width: 300px;
+    padding: 10px;
+  }
+}

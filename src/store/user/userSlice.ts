@@ -1,12 +1,10 @@
 import {IUser} from "../../models/IUser";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store";
+import {IUserState} from "../../models/IUserState";
 
-const initialState:IUser={
-    id:-1,
-    login:'',
-    password:'',
-    email:''
+const initialState:IUserState = {
+    user:{email:'',username:'',password:'',id:-1}
 }
 export const userSlice = createSlice({
     name:'user',
@@ -14,18 +12,17 @@ export const userSlice = createSlice({
     reducers:{
         authorization(state,action:PayloadAction<IUser>){
             //TODO axios get login
-            state.login=action.payload.login
-            state.password=action.payload.password
-            state.email=''
+            state.user=action.payload
         },
         registration(state,action:PayloadAction<IUser>){
             //TODO axios get registration
-            state = action.payload
+            state.user = action.payload
+            alert(state.user)
         },
         logout(state){
-            state.email=''
-            state.login=''
-            state.password=''
+            state.user.email=''
+            state.user.username=''
+            state.user.password=''
         }
     }
 })

@@ -1,4 +1,4 @@
-@import 'Consts';
+@import 'Consts.module';
 
 .header{
   height: 75px;
@@ -25,9 +25,11 @@
 
     .innerList{
       position: absolute;
-      background-color: gainsboro;
-      border-radius: 25px;
+      background-color: $headerColor;
+      border-bottom-right-radius: 25px;
+      border-bottom-left-radius: 25px;
       list-style: none;
+      top:100%;
       li {
         min-width:170px;
         float:none;
@@ -40,30 +42,30 @@
     }
 
 
-    & li{
-      margin: 10px;
+    li{
+
       font:$font;
       font-size: 16pt;
       font-weight: bold;
+      min-width: 115px;
       @include linkMix;
       & > a{
         border-radius: 5px;
+        padding: 25px;
       }
       & > a:hover{
         background-color: $headerLiHoverColor;
       }
 
     }
-    .userAccount{
-      width: 25px;
-      height: 25px;
-      background-color: white;
-      border-radius: 50px;
-    }
     .userFunc{
       display: flex;
       & > div{
         @include linkMix;
+        a{
+          border-radius: 5px;
+          padding: 25px;
+        }
         a:hover{
           background-color: $headerLiHoverColor;
         }
@@ -74,16 +76,11 @@
   }
 }
 .visibleList{
-  //animation: visible 1s linear;
-  //animation-fill-mode: forwards;
+  transition: 0.3s;
+  transform:translateY(0%);
   opacity: 1;
-  transition: 1s;
-  top:100%;
 }
 .hiddenList{
-  //animation: hide 1s linear;
-  //animation-fill-mode: forwards;
-  top:50%;
-  transition: 1s;
+  transform:translateY(-350%);
   opacity: 0;
 }

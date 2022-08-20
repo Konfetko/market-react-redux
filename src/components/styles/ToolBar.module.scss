@@ -1,4 +1,4 @@
-@import 'Consts';
+@import 'Consts.module';
 @media (min-width: 1260px){
   .button{
     display: none;
@@ -63,11 +63,13 @@
     padding: 5px;
     margin:5px;
     font:$font;
-    background-color: rgba(239, 0, 0, 0.51);
+    background-color: transparent;
     border:1px solid black;
     border-radius: 5px;
     &:hover{
       cursor: pointer;
+      background-color: rgba(239, 0, 0, 0.51);
+      transition: 1s;
     }
   }
 }

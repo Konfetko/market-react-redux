@@ -3,13 +3,21 @@ import React, {useEffect, useState} from 'react';
 import classes from '../styles/Header.module.scss'
 import {Link} from "react-router-dom";
 import SmallCart from "../Products/SmallCart";
+import {useAppSelector} from "../../app/hooks";
+import {getUserState} from "../../store/user/userSlice";
 
 const Header = () => {
     const [logOutVisible,setLogOutVisible]=useState(false)
-    const showLogOut = ()=>setLogOutVisible(true)
+    const userState = useAppSelector(getUserState)
+    const showLogOut = ()=>setLogOutVisible(prev=>!prev)
     const closeLogOut = ()=>setLogOutVisible(false)
+
     useEffect(()=>{
-        document.addEventListener('click',closeLogOut)
+        document.addEventListener('click',(event)=>{
+            //@ts-ignore
+            if(event.target.id ==='root')
+                closeLogOut()
+        })
     },[])
     return (
         <header className={classes.header}>
@@ -30,39 +38,48 @@ const Header = () => {
                             О нас
                         </Link>
                     </li>
-                    <li>
-                        <SmallCart/>
-                    </li>
-                    <li className={classes.userFunc}
-                        >
-                        <div
-                            className={classes.userAccount} onMouseEnter={showLogOut}>
-                        </div>
-                         <div>
-                             <Link
 
-                                 to={"/"}>
-                                 &&
-                                 USER) ||
-                             </Link>
-
-                             <Link
-                                 to={"/"}>
-                                 AUTHORIZATION
-                             </Link>
-                         </div>
-                        <ul
-                            className={classes.innerList + " "+((logOutVisible)?classes.visibleList:classes.hiddenList)}
-                        >
+                        {
+                                userState.user.username
+                                &&
                             <li>
-                                <div>
-                                    <Link to={"/32"}>
-                                        Выйти
-                                    </Link>
-                                </div>
+                                <SmallCart/>
                             </li>
-                        </ul>
-                    </li>
+                        }
+                    {
+                        userState.user.username
+                        ? <li className={classes.userFunc}
+                              onClick={showLogOut}
+
+                            >
+                                <div>
+                                    <Link to={"/"}>{userState.user.email}</Link>
+                                </div>
+                                <ul
+                                    className={classes.innerList + " "+((logOutVisible)?classes.visibleList:classes.hiddenList)}>
+                                    <li>
+                                        <div>
+                                            <Link to={"/32"}>
+                                                Профиль
+                                            </Link>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <Link to={"/32"}>
+                                                Выйти
+                                            </Link>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            :<li>
+                                <Link
+                                    to={"/auth"}>
+                                    Авторизация
+                                </Link>
+                            </li>
+                    }
                 </ul>
             </div>
         </header>

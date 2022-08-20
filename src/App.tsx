@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginForm from "./components/Auths/LoginForm";
 import {BrowserRouter, Routes} from "react-router-dom";
 import {Route} from "react-router";
 import AuthPage from "./app/pages/AuthPage";
