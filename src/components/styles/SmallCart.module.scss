@@ -120,12 +120,7 @@
       position: absolute;
       right: 0;
       bottom: 5px;
-      padding-inline: 10px;
-      margin-right: 5px;
-      background-color: transparent;
-      border-radius: 15px;
-      border:1px solid black;
-      font-size: 13pt;
+      @include roundedButton;
       @include ohHover;
     }
   }

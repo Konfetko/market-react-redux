@@ -22,15 +22,27 @@ export const userSlice = createSlice({
         logout(state){
             localStorage.clear()
         },
-        addAdress(state,action:PayloadAction<IAdress>){
-            if(state.user.details!=null)
-                state.user.details.adresses.push(action.payload)
+        addAddress(state,action:PayloadAction<IAdress>){
+            if(state.user.details===undefined) return state
+
+            state.user.details.adresses.push(action.payload)
+        },
+        removeAddress(state,action:PayloadAction<number>){
+            if(state.user.details===undefined) return state
+
+            state
+                .user
+                .details
+                .adresses =
+                state.user.details.adresses.filter(x=>x.idAdress!==action.payload)
+
+            //TODO DB DELETE
         }
 
 
     }
 })
-export const {authorization,registration,logout} = userSlice.actions
+export const {authorization,registration,logout,addAddress,removeAddress} = userSlice.actions
 
 export const getUserState=(state:RootState)=>state.user
 

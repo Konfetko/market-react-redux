@@ -3,32 +3,56 @@ import Card from "../Card";
 import {IAdress} from "../../models/IAdress";
 //@ts-ignore
 import classes from '../styles/Adress.module.scss'
+import {useAppDispatch} from "../../app/hooks";
+import {removeAddress} from "../../store/user/userSlice";
 
 export interface IAdressProps{
-    adress:IAdress
+    adress:IAdress,
+    onOpenChangeForm:(adress:IAdress)=>void
 }
 
-const Address = ({adress}:IAdressProps) => {
+const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
+    const dispatch = useAppDispatch()
+    const deleteAddress=()=>{
+        dispatch(removeAddress(adress.idAdress))
+    }
+
     return (
-        <Card classNames={[classes.addressCard]}>
-            Адрес
+        <Card
+            classNames={[classes.addressCard]}
+        >
             <div
-                className={classes.addressInnerCard}
+                className={classes.addressBlock}
+                onClick={()=>onOpenChangeForm(adress)}
             >
                 <div>
-                    город:{adress.city}
+                    Адрес
                 </div>
-                <div>
-                    улица:{adress.street}
+                <div
+                    className={classes.addressInnerCard}
+                >
+                    <div>
+                        город:{adress.city}
+                    </div>
+                    <div>
+                        улица:{adress.street}
+                    </div>
+                    <div>
+                        дом:{adress.house}
+                    </div>
+                    <div>
+                        квартира:{adress.flatNumber}
+                    </div>
                 </div>
-                <div>
-                    дом:{adress.house}
-                </div>
-                <div>
-                    квартира:{adress.flatNumber}
-                </div>
-            </div>
 
+            </div>
+            <div>
+                <button
+                    onClick={deleteAddress}
+                >
+                    Удалить
+                </button>
+            </div>
         </Card>
     );
 };

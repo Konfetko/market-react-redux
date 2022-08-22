@@ -4,6 +4,20 @@ $headerLiHoverColor: #f560ae;
 $secondColor:#1A5ED5;
 $lightGray: #ffffff;
 
+@mixin roundedButton{
+  padding-inline: 10px;
+  margin-right: 5px;
+  background-color: transparent;
+  border-radius: 15px;
+  border:1px solid black;
+  font-size: 13pt;
+  &:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+  }
+
+}
+
 .content{
   min-height: 800px;
 }

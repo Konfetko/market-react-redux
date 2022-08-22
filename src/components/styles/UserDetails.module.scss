@@ -7,12 +7,21 @@
 
 .block{
   padding: 25px;
+  background: white;
+  button{
+    margin: 15px;
+    margin-left: 40%;
+    @include roundedButton;
+    padding: 10px;
+    &:hover{
+      cursor: pointer;
+      background: whitesmoke;
+    }
+  }
 }
 .detail{
   margin-inline-start: 10px;
-  border: 1px solid black;
   font:$font;
-
 }
 .img{
   width: 50px;

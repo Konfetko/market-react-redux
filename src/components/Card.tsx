@@ -10,12 +10,13 @@ export interface ICardProps{
 
 const Card = ({children,onClick,classNames}:ICardProps) => {
     return (
-        <div
-            className={classes.border +" "+classNames}
-            onClick={onClick}
-        >
-            {children}
-        </div>
+            <div
+                className={classes.border +" "+classNames}
+
+            >
+                {children}
+            </div>
+
     );
 };
 

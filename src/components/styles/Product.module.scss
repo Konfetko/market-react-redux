@@ -9,7 +9,9 @@ $img-size:200px;
   position: absolute;
   transition: transform .4s linear;
 }
-
+.productBlock{
+  margin: 20px;
+}
 .image{
   width: $img-size;
   height: $img-size;
@@ -74,9 +76,15 @@ $img-size:200px;
     }
   }
 }
-.card:hover > .front{
-  transform: perspective(600px) rotateY(-180deg);
-}
-.card:hover > .back{
-  transform: perspective(600px) rotateY(0deg);
+
+.card{
+
+  &:hover{
+    & > .front{
+      transform: perspective(600px) rotateY(-180deg);
+    }
+    & > .back{
+      transform: perspective(600px) rotateY(0deg);
+    }
+  }
 }

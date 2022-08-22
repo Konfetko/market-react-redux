@@ -1,13 +1,13 @@
 @import 'Consts.module';
-.addressInnerCard{
-  min-height: 125px;
-  margin-top: 15px;
-  font:$font;
+.addressBlock{
 
-}
-.addressList{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+  border-radius: 25px;
+  .addressInnerCard{
+    min-height: 125px;
+    margin-top: 15px;
+    font:$font;
+
+  }
 }
 .addressCard{
   &:hover{
@@ -15,5 +15,20 @@
     transition: .3s;
     margin-top: 10px;
 
+  }
+  & button{
+    @include roundedButton;
+    margin-bottom: 10px;
+  }
+}
+.addressList{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background-color: white;
+  margin-top: 10px;
+  p{
+    text-align: center;
+    font:$font;
+    grid-column: 2;
   }
 }
