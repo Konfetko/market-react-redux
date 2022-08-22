@@ -2,7 +2,8 @@
 export interface IFormState {
     username:string,
     password:string,
-    email:string
+    email:string,
+    fio:string
 }
 export interface IFormAction {
     type:string,
@@ -11,7 +12,8 @@ export interface IFormAction {
 export const initialFormState:IFormState = {
     username:'',
     password:'',
-    email:''
+    email:'',
+    fio:''
 }
 const formReducer = (state:IFormState = initialFormState, action:IFormAction):IFormState=>{
     switch (action.type){
@@ -21,6 +23,8 @@ const formReducer = (state:IFormState = initialFormState, action:IFormAction):IF
             return {...state,password:action.payload}
         case 'UPDATE_EMAIL':
             return {...state,email:action.payload}
+        case 'UPDATE_FIO':
+            return {...state,fio:action.payload}
         default:
             return state
     }

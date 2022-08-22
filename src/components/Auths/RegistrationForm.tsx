@@ -21,18 +21,25 @@ const RegistrationForm = ({onSubmit,children}:IAuthFormProps) => {
         inputRef.current.checked=!passVisible
     }
     const registration = (e:React.FormEvent)=>{
-        e.preventDefault()
         dispatchFormValidate({type:"VALIDATE_FORM",payload:formState})
         if(!formValidate.isFormValidity)
             return
 
-        onSubmit({username:formState.username,password:formState.password,email:formState.email})
+        onSubmit({username:formState.username,password:formState.password,fio:formState.fio,email:formState.email})
     }
     return (
         <div className={classes.form}>
             {
                 <Card>
                     <div>
+                        <Input
+                            title={"Введите ваше ФИО"}
+                            onChange={
+                                (e)=>dispatchForm({type:"UPDATE_FIO",payload:e.target.value})
+                            }
+                            onBlur={()=>dispatchFormValidate({type:"VALIDATE_FIO",payload:formState})}
+                            secondClassName={classes.second}/>
+                        <Error error={formValidate.fioError}/>
                         <Input
                             title={"Введите логин"}
                             onChange={

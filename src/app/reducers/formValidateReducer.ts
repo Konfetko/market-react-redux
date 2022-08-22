@@ -4,6 +4,7 @@ export interface IFormValidityState{
     usernameError:string,
     passwordError:string,
     emailError:string,
+    fioError:string
     isFormValidity:boolean
 }
 export interface IFormValidityAction{
@@ -14,6 +15,7 @@ export const initialFormValidityState:IFormValidityState = {
     emailError:'',
     usernameError:'',
     passwordError:'',
+    fioError:'',
     isFormValidity:false
 }
 const formValidateReducer = (state:IFormValidityState=initialFormValidityState,action:IFormValidityAction):IFormValidityState=>{
@@ -43,6 +45,13 @@ const formValidateReducer = (state:IFormValidityState=initialFormValidityState,a
 
         case 'VALIDATE_FORM':
             return {...state,isFormValidity: !state.usernameError && !state.passwordError && !state.emailError}
+
+        case 'VALIDATE_FIO':
+            if(!action.payload.fio)
+                return {...state,fioError:'Заполните ваши данные',isFormValidity:false}
+            if(action.payload.fio.split(' ').length < 3)
+                return {...state,fioError:'Проверьте ваше ФИО',isFormValidity:false}
+            return {...state,fioError:''}
 
         default:
             return state

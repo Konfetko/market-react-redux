@@ -1,6 +1,14 @@
 @import "Consts.module";
 
 
+@mixin ohHover{
+  &:hover{
+    transition: 0.3s;
+    background-color: #eeeaea;
+    cursor: pointer;
+  }
+}
+
 .cartButton {
   border-radius: 25px;
   @include linkMix;
@@ -9,6 +17,7 @@
   }
   & >a:hover {
     background-color: $headerLiHoverColor;
+    cursor: pointer;
   }
 
 }
@@ -31,6 +40,7 @@
   button{
     font:$font;
   }
+
   .items{
     overflow-y: auto;
     max-height: 300px;
@@ -58,9 +68,7 @@
           border:1px solid black;
           border-radius: 5px;
           font-size: 13pt;
-          &:hover{
-            cursor: pointer;
-          }
+          @include ohHover;
         }
         img{
           width: 100px;
@@ -69,6 +77,7 @@
         header{
           text-align: center;
           padding-inline: 20px;
+
         }
       }
 
@@ -78,16 +87,29 @@
   header{
     display: flex;
     min-height: 30px;
+    .titleLink{
+      margin-left: 23%;
+      border:1px solid black;
+      padding: 5px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      text-decoration: none;
+      color:black;
+      @include ohHover;
+    }
     .closeCartButton{
       text-align: right;
       background-color: transparent;
       border:0;
       font:$font;
       font-weight: bold;
+      font-size: 30pt;
       position: absolute;
       right: 0;
       top:0;
       &:hover{
+        transition: .2s;
+        font-size: 29pt;
         cursor: pointer;
       }
     }
@@ -104,6 +126,7 @@
       border-radius: 15px;
       border:1px solid black;
       font-size: 13pt;
+      @include ohHover;
     }
   }
 

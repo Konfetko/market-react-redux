@@ -3,14 +3,21 @@ import React, {useEffect, useState} from 'react';
 import classes from '../styles/Header.module.scss'
 import {Link} from "react-router-dom";
 import SmallCart from "../Products/SmallCart";
-import {useAppSelector} from "../../app/hooks";
-import {getUserState} from "../../store/user/userSlice";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {getUserState, logout} from "../../store/user/userSlice";
 
 const Header = () => {
     const [logOutVisible,setLogOutVisible]=useState(false)
+    const dispatch = useAppDispatch()
     const userState = useAppSelector(getUserState)
     const showLogOut = ()=>setLogOutVisible(prev=>!prev)
     const closeLogOut = ()=>setLogOutVisible(false)
+
+    const userLogout=()=>{
+        dispatch(logout())
+        document.location.reload()
+    }
+
 
     useEffect(()=>{
         document.addEventListener('click',(event)=>{
@@ -59,14 +66,16 @@ const Header = () => {
                                     className={classes.innerList + " "+((logOutVisible)?classes.visibleList:classes.hiddenList)}>
                                     <li>
                                         <div>
-                                            <Link to={"/32"}>
+                                            <Link to={"/profile"}>
                                                 Профиль
                                             </Link>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
-                                            <Link to={"/32"}>
+                                            <Link
+                                                onClick={userLogout}
+                                                to={"/"}>
                                                 Выйти
                                             </Link>
                                         </div>

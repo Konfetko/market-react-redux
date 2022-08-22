@@ -23,7 +23,7 @@ const LoginForm = ({onSubmit,children}:IAuthFormProps) => {
         inputRef.current.checked=!passVisible
     }
     const authorization = ()=>{
-        onSubmit({username:state.username,password:state.password,email:''})
+        onSubmit({username:state.username,password:state.password,email:'',fio:''})
     }
     return (
         <div className={classes.form}>

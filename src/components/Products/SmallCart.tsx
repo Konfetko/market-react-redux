@@ -11,8 +11,8 @@ const SmallCart = () => {
     const dispatch = useAppDispatch()
     const [listVisible,setListVisible] = useState(false)
 
-    const showCart=()=>setListVisible(true)
-    const closeCart=()=>setListVisible(false)
+    const switchDisplayCart=()=>setListVisible(prev=>!prev)
+
     const clearCart = ()=>{
         dispatch(dropState())
     }
@@ -25,21 +25,22 @@ const SmallCart = () => {
     return (
         <>
             <div className={classes.cartButton}>
-                <Link
-                    onMouseEnter={showCart}
-                    to={'/'}
+                <a
+                    onClick={switchDisplayCart}
                 >
                     Корзина:{cart.products.length}
-                </Link>
+                </a>
             </div>
             <div className={classes.cart +" "+((listVisible)?classes.visible:classes.hidden)}>
                 <header>
-                    <div>
-                        Товаров: {cart.products.length}
-                    </div>
+                    <Link
+                        className={classes.titleLink}
+                        to={'/'}>
+                        Перейти в корзину
+                    </Link>
                     <button
                         className={classes.closeCartButton}
-                        onClick={closeCart}>
+                        onClick={switchDisplayCart}>
                         X
                     </button>
                 </header>

@@ -1,0 +1,19 @@
+@import 'Consts.module';
+.addressInnerCard{
+  min-height: 125px;
+  margin-top: 15px;
+  font:$font;
+
+}
+.addressList{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.addressCard{
+  &:hover{
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 10px;
+
+  }
+}
