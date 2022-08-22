@@ -22,7 +22,13 @@
   .list{
     list-style: none;
     display: flex;
+    .userEmailBlock{
+      .arrow{
+        margin-left: 10px;
 
+      }
+
+    }
     .innerList{
       position: absolute;
       background-color: $headerColor;

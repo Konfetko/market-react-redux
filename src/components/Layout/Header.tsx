@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import SmallCart from "../Products/SmallCart";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {getUserState, logout} from "../../store/user/userSlice";
+import Arrow, {Direction} from "../Arrow";
 
 const Header = () => {
     const [logOutVisible,setLogOutVisible]=useState(false)
@@ -59,8 +60,20 @@ const Header = () => {
                               onClick={showLogOut}
 
                             >
-                                <div>
-                                    <Link to={"/"}>{userState.user.email}</Link>
+                                <div
+                                    className={classes.userEmailBlock}
+                                >
+                                    <Link
+                                        to={"/"}>
+                                        {userState.user.email}
+                                        <Arrow
+                                            className={classes.arrow}
+                                            direction={
+                                                logOutVisible? Direction.toUp : Direction.toBottom}
+                                        />
+                                    </Link>
+
+
                                 </div>
                                 <ul
                                     className={classes.innerList + " "+((logOutVisible)?classes.visibleList:classes.hiddenList)}>
