@@ -9,12 +9,12 @@ export interface IModalProps{
 }
 const Modal = ({children,onCloseModal}:IModalProps) => {
     return (
-        <div>
+        <div >
             <div
                 className={classes.background}
                 onClick={onCloseModal}
             ></div>
-            <Card classNames={[classes.a]}>
+            <Card classNames={[classes.card]}>
                 {children}
             </Card>
         </div>

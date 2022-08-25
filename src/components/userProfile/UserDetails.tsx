@@ -2,17 +2,14 @@ import React, {useState} from 'react';
 import {IUser} from "../../models/IUser";
 //@ts-ignore
 import classes from '../styles/UserDetails.module.scss'
-import AddressForm from "./AddressForm";
+import {IAdress} from "../../models/IAdress";
 
 export interface IUserDetailsProps {
     user:IUser,
+    showForm:(address?:IAdress)=>void
 }
 
-const UserDetails = ({user}:IUserDetailsProps) => {
-    const [visibleForm,setVisibleForm] = useState(false)
-    const switchVisibleAddForm = ()=>{
-        setVisibleForm(prev=>!prev)
-    }
+const UserDetails = ({user,showForm}:IUserDetailsProps) => {
 
     return (
         <>
@@ -21,8 +18,8 @@ const UserDetails = ({user}:IUserDetailsProps) => {
                 <div
                     className={classes.dataContainer}>
                     <div
-                        className={classes.detail +" "+classes.img}>
-                        img
+                        className={classes.detail +" "+ classes.img}>
+                        <img src={require('../images/pnguser.png')} alt=""/>
                     </div>
                     <div
                         className={classes.detail}>
@@ -45,16 +42,18 @@ const UserDetails = ({user}:IUserDetailsProps) => {
                         }
                     </div>
                 </div>
-                <button
-                    onClick={switchVisibleAddForm}
-                >
-                    Добавить адрес
-                </button>
+                {
+                    user.details?.adresses &&
+                    user.details.adresses.length > 3
+                    ? <p>У вас уже {user.details.adresses.length}/3 адресов</p>
+                    :<button
+                        onClick={()=>showForm(undefined)}
+                        >
+                        Добавить адрес
+                    </button>
+                }
             </div>
-            {
-                visibleForm &&
-                <AddressForm address={undefined} onClose={switchVisibleAddForm}/>
-            }
+
         </>
     );
 };

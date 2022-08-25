@@ -10,7 +10,7 @@
   background: white;
   button{
     margin: 15px;
-    margin-left: 40%;
+    margin-left: 45%;
     @include roundedButton;
     padding: 10px;
     &:hover{
@@ -22,8 +22,11 @@
 .detail{
   margin-inline-start: 10px;
   font:$font;
+  width: 100%;
 }
 .img{
-  width: 50px;
-  height: 50px;
+  &,img{
+    width: 50px;
+    height: 50px;
+  }
 }

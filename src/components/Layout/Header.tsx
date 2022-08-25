@@ -63,15 +63,15 @@ const Header = () => {
                                 <div
                                     className={classes.userEmailBlock}
                                 >
-                                    <Link
-                                        to={"/"}>
+                                    <a href={"#"}
+                                        >
                                         {userState.user.email}
                                         <Arrow
                                             className={classes.arrow}
                                             direction={
                                                 logOutVisible? Direction.toUp : Direction.toBottom}
                                         />
-                                    </Link>
+                                    </a>
 
 
                                 </div>

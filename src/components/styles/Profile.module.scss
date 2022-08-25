@@ -1,6 +1,31 @@
+@import 'Consts.module';
+@media screen and (min-width:1500px){
+  .content{
+    height: 635px;
+  }
+}
 .content{
-  min-height: 600px;
+  min-height: 569px;
   min-width: 650px;
+
+  .navPanel{
+    background-color: white;
+    padding: 5px;
+    .innerPanel{
+      margin-inline:30%;
+      display: flex;
+      justify-content: space-between;
+      & div{
+        font:$font;
+        font-size: 15pt;
+      }
+      & div:hover{
+        cursor: pointer;
+        color:gray;
+        transition: .3s;
+      }
+    }
+  }
 }
 .outer{
   background-color: gainsboro;

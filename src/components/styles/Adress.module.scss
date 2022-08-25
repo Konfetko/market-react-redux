@@ -6,7 +6,8 @@
     min-height: 125px;
     margin-top: 15px;
     font:$font;
-
+    text-align: left;
+    padding-left: 10%;
   }
 }
 .addressCard{
@@ -21,14 +22,24 @@
     margin-bottom: 10px;
   }
 }
-.addressList{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+.addressListBlock{
   background-color: white;
   margin-top: 10px;
-  p{
-    text-align: center;
+  .titleCount{
     font:$font;
-    grid-column: 2;
+    text-align: center;
+    font-size: 15pt;
+    padding-top: 10px;
   }
+  .addressList{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    p{
+      text-align: center;
+      font:$font;
+      grid-column: 2;
+    }
+  }
+
 }

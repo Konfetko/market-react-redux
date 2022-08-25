@@ -1,0 +1,9 @@
+@import 'Consts.module';
+
+.addressBlock{
+  margin: 15px;
+  & button{
+    margin-top: 15px;
+    @include roundedButton;
+  }
+}

@@ -7,10 +7,11 @@ export interface IInputProps{
     secondClassName?:string,
     type?:string,
     onChange:(event:React.ChangeEvent<HTMLInputElement>)=>void,
-    onBlur?:()=>void
+    onBlur?:()=>void,
+    value?:string
 }
 
-const Input = ({title,onChange,secondClassName,type,onBlur}:IInputProps) => {
+const Input = ({title,onChange,secondClassName,type,onBlur,value}:IInputProps) => {
     return (
         <div className={secondClassName}>
             <p>{title}</p>
@@ -19,6 +20,7 @@ const Input = ({title,onChange,secondClassName,type,onBlur}:IInputProps) => {
                 onChange={onChange}
                 className={classes.input}
                 onBlur={onBlur}
+                value={value}
             />
         </div>
     );

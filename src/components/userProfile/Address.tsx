@@ -12,10 +12,6 @@ export interface IAdressProps{
 }
 
 const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
-    const dispatch = useAppDispatch()
-    const deleteAddress=()=>{
-        dispatch(removeAddress(adress.idAdress))
-    }
 
     return (
         <Card
@@ -46,13 +42,7 @@ const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
                 </div>
 
             </div>
-            <div>
-                <button
-                    onClick={deleteAddress}
-                >
-                    Удалить
-                </button>
-            </div>
+
         </Card>
     );
 };
