@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useAppSelector} from "../hooks";
 import {getUserState} from "../../store/user/userSlice";
 import Layout from "../../components/Layout/Layout";
@@ -8,6 +8,7 @@ import classes from '../../components/styles/Profile.module.scss'
 import AddressList from "../../components/userProfile/AddressList";
 import {IAdress} from "../../models/IAdress";
 import AddressForm from "../../components/userProfile/AddressForm";
+import {useNavigate} from "react-router";
 
 export enum FormShowed{
     AddressForm,
@@ -16,6 +17,7 @@ export enum FormShowed{
 
 const ProfilePage = () => {
     const userState = useAppSelector(getUserState)
+    const navigate = useNavigate()
     const [visibleForm,setVisibleForm] = useState(false)
     const [currentAddress,setCurrentAddress] = useState<IAdress | undefined>(undefined)
     const [currentForm,setCurrentForm] = useState<FormShowed>(FormShowed.AddressForm)
@@ -30,6 +32,10 @@ const ProfilePage = () => {
 
     //const adresses:IAdress[] = [{idAdress:1,city:'Minsk',flatNumber:60,house:'2b',street:'gdsgds'},{idAdress:2,city:'Minsk',flatNumber:60,house:'2b',street:'gdsgds'},{idAdress:3,city:'Minsk',flatNumber:60,house:'2b',street:'gdsgds'},{idAdress:3,city:'Minsk',flatNumber:60,house:'2b',street:'gdsgds'}]
 
+    useEffect(()=>{
+        if(!userState.user.username)
+            navigate('/')
+    })
 
     return (
         <>

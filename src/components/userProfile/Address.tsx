@@ -3,8 +3,7 @@ import Card from "../Card";
 import {IAdress} from "../../models/IAdress";
 //@ts-ignore
 import classes from '../styles/Adress.module.scss'
-import {useAppDispatch} from "../../app/hooks";
-import {removeAddress} from "../../store/user/userSlice";
+
 
 export interface IAdressProps{
     adress:IAdress,
@@ -12,6 +11,9 @@ export interface IAdressProps{
 }
 
 const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
+    const getString=(str:string)=>{
+        return str.length >11 ? str.slice(0,11)+'...':str
+    }
 
     return (
         <Card
@@ -27,14 +29,14 @@ const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
                 <div
                     className={classes.addressInnerCard}
                 >
-                    <div>
-                        город:{adress.city}
+                    <div className={classes.title}>
+                        город:{getString(adress.city)}
                     </div>
                     <div>
-                        улица:{adress.street}
+                        улица:{getString(adress.street)}
                     </div>
                     <div>
-                        дом:{adress.house}
+                        дом:{getString(adress.house)}
                     </div>
                     <div>
                         квартира:{adress.flatNumber}

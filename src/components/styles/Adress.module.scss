@@ -2,12 +2,20 @@
 .addressBlock{
 
   border-radius: 25px;
+
   .addressInnerCard{
     min-height: 125px;
     margin-top: 15px;
     font:$font;
     text-align: left;
     padding-left: 10%;
+    margin-right: 15px;
+
+    &  div{
+      max-width: 250px;
+      overflow-wrap: break-word;
+    }
+
   }
 }
 .addressCard{
@@ -33,7 +41,6 @@
   }
   .addressList{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
 
     p{
       text-align: center;
@@ -42,4 +49,14 @@
     }
   }
 
+}
+@media screen and (max-width: 1150px) {
+  .addressList{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media screen and (min-width: 1150px) {
+  .addressList{
+    grid-template-columns: repeat(3,1fr);
+  }
 }

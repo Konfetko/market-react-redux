@@ -44,8 +44,8 @@ const UserDetails = ({user,showForm}:IUserDetailsProps) => {
                 </div>
                 {
                     user.details?.adresses &&
-                    user.details.adresses.length > 3
-                    ? <p>У вас уже {user.details.adresses.length}/3 адресов</p>
+                    user.details.adresses.length >= 3
+                    ? <p className={classes.warning}>У вас уже {user.details.adresses.length}/3 адресов</p>
                     :<button
                         onClick={()=>showForm(undefined)}
                         >

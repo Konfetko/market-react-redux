@@ -1,12 +1,16 @@
 @import 'Consts.module';
 .form{
   position: absolute;
+
   left: 30%;
   top:15%;
   .showPass{
     margin-left: -3.5%;
     margin-top: 3%;
     width: 150px;
+  }
+  .inputBlock{
+    margin:15px;
   }
   .buttons{
     div button{

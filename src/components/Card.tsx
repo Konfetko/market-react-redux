@@ -12,7 +12,6 @@ const Card = ({children,onClick,classNames}:ICardProps) => {
     return (
             <div
                 className={classes.border +" "+classNames}
-
             >
                 {children}
             </div>

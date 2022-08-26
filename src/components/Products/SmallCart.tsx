@@ -35,7 +35,7 @@ const SmallCart = () => {
                 <header>
                     <Link
                         className={classes.titleLink}
-                        to={'/'}>
+                        to={'/cart'}>
                         Перейти в корзину
                     </Link>
                     <button

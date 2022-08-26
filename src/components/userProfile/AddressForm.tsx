@@ -1,10 +1,14 @@
-import React, {useReducer} from 'react';
-import {IAdress} from "../../models/IAdress";
+import React, {useEffect, useReducer} from 'react';
+import {IAdress, IAdressAdd} from "../../models/IAdress";
 import Modal from "../Modal";
 import {useAppDispatch} from "../../app/hooks";
-import {removeAddress} from "../../store/user/userSlice";
+import {removeAddress,addAddress,changeDataAddress} from "../../store/user/userSlice";
 import Input from "../ToolBar/Input";
-import AddressReducer, {AddressAction, initializationAddressValue} from "../../app/reducers/addressReducer";
+import AddressReducer, {
+    AddressAction,
+    IAddressFormState,
+    initializationAddressValue
+} from "../../app/reducers/addressReducer";
 //@ts-ignore
 import classes from '../styles/AddressForm.module.scss'
 
@@ -15,13 +19,43 @@ export interface IAddressFormProps{
 }
 
 const AddressForm = ({address,onClose}:IAddressFormProps) => {
-    const [addressState,dispatchAddress] = useReducer(AddressReducer,initializationAddressValue)
+    const [addressState,dispatchAddress] =
+        useReducer(
+            AddressReducer,
+            !address
+                ?initializationAddressValue
+                :{
+                    street:address.street,
+                    house:address.house,
+                    flatNumber:address.flatNumber,
+                    city:address.city
+                }as IAddressFormState
+        )
     const dispatch = useAppDispatch()
 
-    const deleteAddress=()=>{
-        if(address === undefined) return
+    const deleteAddressHandler=()=>{
+        if(!address) return
+
+        // eslint-disable-next-line no-restricted-globals
+        const result = confirm("Вы уверены что хотите удалить адрес?")
+        if(!result) return
+
         dispatch(removeAddress(address?.idAdress))
+        document.location.reload()
     }
+    const addAddressHandler=()=>{
+        const action:IAdressAdd = {city:addressState.city,house:addressState.house,street:addressState.street,flatNumber:addressState.flatNumber}
+        dispatch(addAddress(action))
+    }
+    const changeAddress=()=>{
+        if(!address) return
+
+        const action:IAdressAdd = {city:addressState.city,house:addressState.house,street:addressState.street,flatNumber:addressState.flatNumber}
+        dispatch(changeDataAddress({sourceAdress:address,changedAdress:action}))
+    }
+    useEffect(()=>{
+
+    })
     return (
         <Modal
             onCloseModal={onClose}
@@ -31,21 +65,46 @@ const AddressForm = ({address,onClose}:IAddressFormProps) => {
                 <div
                     className={classes.addressBlock}
                 >
-                    <Input title={"Введите город"} onChange={(e)=>{}}/>
-                    <Input title={"Введите улицу"} onChange={(e)=>{}}/>
-                    <Input title={"Введите дом"} onChange={(e)=>{}}/>
-                    <Input title={"Введите квартиру"} onChange={(e)=>{}}/>
-                    <button>Добавить адрес</button>
+                    <Input title={"Введите город"} onChange={(e)=>{dispatchAddress({type:AddressAction.InputCity,payload:e.target.value})}}/>
+                    <Input title={"Введите улицу"} onChange={(e)=>{dispatchAddress({type:AddressAction.InputStreet,payload:e.target.value})}}/>
+                    <Input title={"Введите дом"} onChange={(e)=>{dispatchAddress({type:AddressAction.InputHouse,payload:e.target.value})}}/>
+                    <Input title={"Введите квартиру"} onChange={(e)=>{dispatchAddress({type:AddressAction.InputFlatNumber,payload:Number(e.target.value)})}}/>
+                    <button
+                        onClick={addAddressHandler}
+                    >
+                        Добавить адрес
+                    </button>
                 </div>
-
-
             }
             {
+
                 address &&
-                <button
-                    onClick={deleteAddress}>
-                    delete
-                </button>
+                <div className={classes.addressBlock}>
+                    <Input
+                        title={"Город"}
+                        value={addressState.city}
+                        onChange={(e)=>{dispatchAddress({type:AddressAction.InputCity,payload:e.target.value})}}/>
+                    <Input
+                        title={"Улица"}
+                        value={addressState.street}
+                        onChange={(e)=>{dispatchAddress({type:AddressAction.InputStreet,payload:e.target.value})}}/>
+                    <Input
+                        title={"Дом"}
+                        value={addressState.house}
+                        onChange={(e)=>{dispatchAddress({type:AddressAction.InputHouse,payload:e.target.value})}}/>
+                    <Input
+                        title={"Квартира"}
+                        value={addressState.flatNumber+''}
+                        onChange={(e)=>{dispatchAddress({type:AddressAction.InputFlatNumber,payload:Number(e.target.value)})}}/>
+                    <button
+                        onClick={changeAddress}>
+                        Сохранить изменения
+                    </button>
+                    <button
+                        onClick={deleteAddressHandler}>
+                        Удалить
+                    </button>
+                </div>
             }
         </Modal>
     );

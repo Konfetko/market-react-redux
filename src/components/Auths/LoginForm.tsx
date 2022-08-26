@@ -29,7 +29,7 @@ const LoginForm = ({onSubmit,children}:IAuthFormProps) => {
         <div className={classes.form}>
             {
                <Card>
-                   <div>
+                   <div className={classes.inputBlock}>
                        <Input
                            title={"Введите логин"}
                            onChange={

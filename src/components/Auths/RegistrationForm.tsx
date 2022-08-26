@@ -21,7 +21,9 @@ const RegistrationForm = ({onSubmit,children}:IAuthFormProps) => {
         inputRef.current.checked=!passVisible
     }
     const registration = (e:React.FormEvent)=>{
+        e.preventDefault()
         dispatchFormValidate({type:"VALIDATE_FORM",payload:formState})
+
         if(!formValidate.isFormValidity)
             return
 
@@ -31,7 +33,7 @@ const RegistrationForm = ({onSubmit,children}:IAuthFormProps) => {
         <div className={classes.form}>
             {
                 <Card>
-                    <div>
+                    <div className={classes.inputBlock}>
                         <Input
                             title={"Введите ваше ФИО"}
                             onChange={

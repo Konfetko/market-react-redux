@@ -19,7 +19,7 @@ const Product = ({product}:IProductProps) => {
     }
 
     return (
-        <Card >
+        <Card classNames={[classes.card]}>
             <div className={classes.productBlock}>
                 <div className={classes.card+" "+classes.center}>
                     <div className={classes.front}>

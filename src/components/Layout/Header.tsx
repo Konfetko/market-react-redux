@@ -63,8 +63,9 @@ const Header = () => {
                                 <div
                                     className={classes.userEmailBlock}
                                 >
-                                    <a href={"#"}
-                                        >
+                                    <a
+                                        href={"#"}
+                                    >
                                         {userState.user.email}
                                         <Arrow
                                             className={classes.arrow}
