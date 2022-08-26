@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {IUser} from "../../models/IUser";
-//@ts-ignore
-import classes from '../styles/UserDetails.module.scss'
 import {IAdress} from "../../models/IAdress";
+
+const classes = require('../styles/UserDetails.module.scss')
 
 export interface IUserDetailsProps {
     user:IUser,

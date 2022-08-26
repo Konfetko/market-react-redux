@@ -9,6 +9,7 @@ import {PersistGate} from "redux-persist/integration/react";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+require('dotenv').config()
 
 root.render(
   <React.StrictMode>

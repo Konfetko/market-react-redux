@@ -1,10 +1,9 @@
 import React, {ChangeEvent, useReducer, useRef, useState} from 'react';
 import {IUser} from "../../models/IUser";
-//@ts-ignore
-import classes from '../styles/AuthForm.module.scss'
 import Input from "../ToolBar/Input";
 import Card from "../Card";
 import formReducer, {initialFormState} from "../../app/reducers/formReducer";
+const classes = require('../styles/AuthForm.module.scss')
 
 export interface IAuthFormProps {
     onSubmit:(user:IUser)=>void,

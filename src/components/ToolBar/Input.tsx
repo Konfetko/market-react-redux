@@ -1,6 +1,6 @@
 import React from 'react';
-//@ts-ignore
-import classes from '../styles/Input.module.scss'
+
+const classes = require('../styles/Input.module.scss')
 
 export interface IInputProps{
     title:string,

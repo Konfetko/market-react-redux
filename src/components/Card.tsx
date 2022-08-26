@@ -1,6 +1,6 @@
 import React from 'react';
-// @ts-ignore
-import classes from './styles/Card.module.scss'
+
+const classes = require('../styles/Card.module.scss')
 
 export interface ICardProps{
     children:React.ReactNode,

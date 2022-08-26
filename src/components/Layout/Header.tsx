@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-//@ts-ignore
-import classes from '../styles/Header.module.scss'
+
 import {Link} from "react-router-dom";
 import SmallCart from "../Products/SmallCart";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {getUserState, logout} from "../../store/user/userSlice";
 import Arrow, {Direction} from "../Arrow";
+
+const classes = require('../styles/Header.module.scss')
 
 const Header = () => {
     const [logOutVisible,setLogOutVisible]=useState(false)

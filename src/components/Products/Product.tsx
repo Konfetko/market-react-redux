@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {IProduct} from "../../models/IProduct";
 import Card from "../Card";
-// @ts-ignore
-import classes from '../styles/Product.module.scss'
 import {Link} from "react-router-dom";
 import {useAppDispatch} from "../../app/hooks";
 import {addToCart} from '../../store/product/cartSlice'
+
+const classes = require('../styles/Product.module.scss')
 
 export interface IProductProps{
     product:IProduct

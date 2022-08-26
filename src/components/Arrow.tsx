@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-//@ts-ignore
-import classes from './styles/Arrow.module.scss'
+
+const classes = require('../styles/Arrow.module.scss')
 
 export enum Direction{
     toBottom,

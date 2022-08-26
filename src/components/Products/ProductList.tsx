@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {fetchProducts, getProductsState} from "../../store/product/productSlice";
 import Product from "./Product";
-//@ts-ignore
-import classes from '../styles/ProductList.module.scss'
+
+const classes = require('../styles/ProductList.module.scss')
 
 const ProductList = () => {
     const store = useAppSelector(getProductsState)

@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-//@ts-ignore
-import classes from '../styles/ToolBar.module.scss'
 import Selector from "./Selector";
 import {ISelect} from "../../models/ISelect";
 import Input from "./Input";
@@ -12,6 +10,8 @@ import {
     getProductsState,
     sortProductsByField
 } from "../../store/product/productSlice";
+
+const classes = require('../styles/ToolBar.module.scss')
 
 const ToolBar = () => {
     const [isOpenToolBar,setOpenToolBar] = useState(true)

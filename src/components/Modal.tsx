@@ -1,7 +1,7 @@
 import React from 'react';
-//@ts-ignore
-import classes from '../components/styles/Modal.module.scss'
 import Card from "./Card";
+
+const classes = require('../styles/Modal.module.scss')
 
 export interface IModalProps{
     children:React.ReactNode,
