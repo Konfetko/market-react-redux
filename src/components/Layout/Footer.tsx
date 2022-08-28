@@ -1,6 +1,7 @@
 import React from 'react';
-
-const classes = require('../styles/Footer.module.scss')
+//@ts-ignore
+import classes from '../styles/Footer.module.scss'
+//const classes = require('../styles/Footer.module.scss')
 
 const Footer = () => {
     return (

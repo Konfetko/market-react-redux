@@ -1,11 +1,7 @@
 @import 'Consts.module';
-@media screen and (min-width:1500px){
-  .content{
-    height: 635px;
-  }
-}
+
 .content{
-  min-height: 569px;
+  min-height: 100%;
   min-width: 650px;
 
   .navPanel{
@@ -33,4 +29,5 @@
   padding-inline: 12.5%;
   margin-left: -10px;
   margin-right: -8px;
+  min-height: calc(100vh - 333px);
 }

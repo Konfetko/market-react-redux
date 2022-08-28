@@ -1,0 +1,61 @@
+@import 'Consts.module';
+.content{
+  min-height: calc(100vh - 350px);
+  background-color: gainsboro;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top: 75px;
+  padding: 100px;
+  .grid{
+    display: grid;
+  }
+  .productBlock{
+    background-color: white;
+    max-width: 1600px;
+    border-radius: 15px;
+    .productImage{
+      img{
+        width: 350px;
+        height: 450px;
+      }
+      margin: 25px;
+    }
+    .description{
+      margin: 25px;
+      .price{
+        & div{
+          margin: 15px;
+          button{
+            @include roundedButton;
+          }
+        }
+        font-size: 15pt;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+  }
+
+
+}
+//// min это больше; max это меньше
+@media screen and (max-width: 1100px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+  .productBlock{
+    width: 600px;
+    margin: auto;
+  }
+  .productImage{
+    img{
+      margin-left: 20%;
+    }
+  }
+}
+@media screen and (min-width: 1100px){
+    .grid{
+      grid-template-columns: .1fr 1fr;
+    }
+}

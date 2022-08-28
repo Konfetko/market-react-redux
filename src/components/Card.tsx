@@ -1,6 +1,7 @@
 import React from 'react';
-
-const classes = require('../styles/Card.module.scss')
+//@ts-ignore
+import classes from '../components/styles/Card.module.scss'
+//const classes = require('../components/styles/Card.module.scss')
 
 export interface ICardProps{
     children:React.ReactNode,
@@ -11,6 +12,7 @@ export interface ICardProps{
 const Card = ({children,onClick,classNames}:ICardProps) => {
     return (
             <div
+                onClick={onClick}
                 className={classes.border +" "+classNames}
             >
                 {children}

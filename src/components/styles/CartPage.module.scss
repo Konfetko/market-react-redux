@@ -1,4 +1,108 @@
+@import 'Consts.module';
+
 .content{
   margin-top: 75px;
-  min-height: 90vh;
+  min-height: calc(100vh - 250px);
+  background-color: gainsboro;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding: 100px;
+
+  .cart{
+    display: grid;
+    grid-template-columns: 0.7fr max-content;
+
+    .cartOffer{
+      background-color: white;
+      margin-inline:15px;
+      border-radius: 15px;
+      min-width: 400px;
+      padding: 15px;
+      padding-inline: 45px;
+      position: fixed;
+      & hr{
+        margin-bottom: 15px;
+        margin-top: 30px;
+
+      }
+      .cartPrice{
+        display: flex;
+        justify-content: space-between;
+      }
+      .orderButton{
+        & button{
+          width: 100%;
+          height: 50px;
+          background-color: #f32a2a;
+          color:white;
+          font-size: 15pt;
+          font-weight: bold;
+          border-radius: 15px;
+          border: 0;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .cartList{
+      min-width: 900px;
+      background-color: gainsboro;
+      & > div{
+        background-color: white;
+        margin-bottom:15px;
+        border-radius: 15px;
+        padding: 15px;
+        padding-left: 25px;
+      }
+      .cartCount{
+
+      }
+      .cartItems{
+        .item{
+
+          margin: 10px;
+          padding: 10px;
+          display: flex;
+          img{
+            width: 150px;
+            height: 150px;
+          }
+          .details{
+            border-left: 1px solid black;
+            margin-left: 25px;
+            .detail{
+              margin-left: 25px;
+              .count{
+                display: flex;
+                align-items: center;
+                .buttons{
+                  margin-left: 25px;
+                  display: flex;
+                  align-items: center;
+                  button{
+                    height: 50px;
+                    width: 50px;
+                    margin-inline:15px;
+                    border-radius: 50px;
+                    border:0;
+                    font-size: 25pt;
+                    img{
+                      height: 25px;
+                      width: 25px;
+                      margin-top: 10px;
+                    }
+                    &:hover{
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
 }

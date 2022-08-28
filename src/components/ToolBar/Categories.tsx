@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {fetchProductCategories, getCategoriesState} from "../../store/product/categorySlice";
-
-const classes = require('../styles/Categories.module.scss')
+//@ts-ignore
+import classes from '../styles/Categories.module.scss'
+//const classes = require('../styles/Categories.module.scss')
 
 export interface ICategoryProps{
     handleCategory:(category:string)=>void

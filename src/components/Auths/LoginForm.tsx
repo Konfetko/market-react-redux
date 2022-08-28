@@ -3,7 +3,9 @@ import {IUser} from "../../models/IUser";
 import Input from "../ToolBar/Input";
 import Card from "../Card";
 import formReducer, {initialFormState} from "../../app/reducers/formReducer";
-const classes = require('../styles/AuthForm.module.scss')
+//@ts-ignore
+import classes from '../styles/AuthForm.module.scss'
+//const classes = require('../styles/AuthForm.module.scss')
 
 export interface IAuthFormProps {
     onSubmit:(user:IUser)=>void,

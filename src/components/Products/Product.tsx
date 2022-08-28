@@ -4,8 +4,11 @@ import Card from "../Card";
 import {Link} from "react-router-dom";
 import {useAppDispatch} from "../../app/hooks";
 import {addToCart} from '../../store/product/cartSlice'
+//@ts-ignore
+import classes from '../styles/Product.module.scss'
+import {useNavigate} from "react-router";
 
-const classes = require('../styles/Product.module.scss')
+//const classes = require('../styles/Product.module.scss')
 
 export interface IProductProps{
     product:IProduct
@@ -13,14 +16,21 @@ export interface IProductProps{
 
 const Product = ({product}:IProductProps) => {
    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const addProductToCart=()=>{
        dispatch(addToCart(product))
     }
+    const navigateToProductPage=()=>{
+       navigate('/product&'+product.id)
+    }
 
     return (
         <Card classNames={[classes.card]}>
-            <div className={classes.productBlock}>
+            <div
+                className={classes.productBlock}
+                onClick={navigateToProductPage}
+            >
                 <div className={classes.card+" "+classes.center}>
                     <div className={classes.front}>
                         <img src={product.image} className={classes.image} alt=""/>
@@ -63,14 +73,15 @@ const Product = ({product}:IProductProps) => {
                         <div>Стоимость:</div>
                         <div>{product.price} руб.</div>
                     </div>
-                    <div>
-                        <button
-                            onClick={addProductToCart}
-                            className={classes.addToCartButton}>
-                            Добавить в корзину
-                        </button>
-                    </div>
+
                 </div>
+            </div>
+            <div>
+                <button
+                    onClick={addProductToCart}
+                    className={classes.addToCartButton}>
+                    Добавить в корзину
+                </button>
             </div>
         </Card>
     );

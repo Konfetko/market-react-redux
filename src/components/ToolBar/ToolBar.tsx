@@ -3,15 +3,15 @@ import Selector from "./Selector";
 import {ISelect} from "../../models/ISelect";
 import Input from "./Input";
 import Categories from "./Categories";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {useAppDispatch} from "../../app/hooks";
 import {
     clearModified, filterByName,
     filterProductsByCategory,
-    getProductsState,
     sortProductsByField
-} from "../../store/product/productSlice";
-
-const classes = require('../styles/ToolBar.module.scss')
+} from "../../store/product/productsSlice";
+//@ts-ignore
+import classes from '../styles/ToolBar.module.scss'
+//const classes = require('../styles/ToolBar.module.scss')
 
 const ToolBar = () => {
     const [isOpenToolBar,setOpenToolBar] = useState(true)
@@ -20,7 +20,6 @@ const ToolBar = () => {
                                                         {name:"Цене",value:"price"}
                                                     ])
     const [width,setWidth]= useState(window.innerWidth)
-    const selector = useAppSelector(getProductsState)
     const dispatch = useAppDispatch()
 
     const switchToolBar=()=>{

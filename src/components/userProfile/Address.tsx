@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from "../Card";
 import {IAdress} from "../../models/IAdress";
-
-const classes = require('../styles/Adress.module.scss.module.scss')
+//@ts-ignore
+import classes from '../styles/Adress.module.scss'
+//const classes = require('../styles/Adress.module.scss')
 
 
 export interface IAdressProps{

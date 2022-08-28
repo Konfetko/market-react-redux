@@ -1,7 +1,8 @@
 import React from 'react';
 import {ISelect} from "../../models/ISelect";
-
-const classes = require('../styles/Selector.module.scss')
+//@ts-ignore
+import classes from '../styles/Selector.module.scss'
+//const classes = require('../styles/Selector.module.scss')
 
 export interface ISelectorProps{
     selectors:ISelect[],

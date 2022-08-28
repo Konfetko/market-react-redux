@@ -5,8 +5,7 @@ import AuthPage from "./app/pages/AuthPage";
 import MainPage from "./app/pages/MainPage";
 import ProfilePage from "./app/pages/ProfilePage";
 import CartPage from "./app/pages/CartPage";
-
-
+import ProductPage from "./app/pages/ProductPage";
 
 
 const App = () => {
@@ -18,6 +17,7 @@ const App = () => {
                 <Route path={'/'} element={<MainPage/>}/>
                 <Route path={'/cart'} element={<CartPage/>}/>
                 <Route path={'/profile'} element={<ProfilePage/>}/>
+                <Route path={'/product&:id'} element={<ProductPage/>}/>
             </Routes>
         </BrowserRouter>
       </>

@@ -11,9 +11,13 @@ $img-size:200px;
 }
 .card{
   height: 380px;
+
 }
 .productBlock{
   margin: 20px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .image{
   width: $img-size;
@@ -42,8 +46,8 @@ $img-size:200px;
 
 }
 .addToCartButton {
-  width: 100%;
-  margin-top: 5px;
+  width: 90%;
+  margin-top: -10px;
   border-radius: 25px;
   border:0.1em solid black;
   height: 30px;

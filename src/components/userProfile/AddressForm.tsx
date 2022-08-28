@@ -9,8 +9,9 @@ import AddressReducer, {
     IAddressFormState,
     initializationAddressValue
 } from "../../app/reducers/addressReducer";
-
-const classes = require('../styles/AddressForm.module.scss')
+//@ts-ignore
+import classes from '../styles/AddressForm.module.scss'
+//const classes = require('../styles/AddressForm.module.scss')
 
 export interface IAddressFormProps{
     address?:IAdress,

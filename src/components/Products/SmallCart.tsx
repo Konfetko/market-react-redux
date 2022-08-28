@@ -3,8 +3,9 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {getCartState} from "../../store/product/cartSlice";
 import {dropState,removeFromCart} from '../../store/product/cartSlice'
 import {Link} from "react-router-dom";
-
-const classes = require('../styles/SmallCart.module.scss')
+//@ts-ignore
+import classes from '../styles/SmallCart.module.scss'
+//const classes = require('../styles/SmallCart.module.scss')
 
 const SmallCart = () => {
     const cart = useAppSelector(getCartState)

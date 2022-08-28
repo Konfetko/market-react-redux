@@ -1,8 +1,9 @@
 import React from 'react';
 import {IAdress} from "../../models/IAdress";
 import Address from "./Address";
-
-const classes = require('../styles/Adress.module.scss')
+//@ts-ignore
+import classes from '../styles/Adress.module.scss'
+//const classes = require('../styles/Adress.module.scss')
 
 export interface IAdressesProps{
     adresses:IAdress[],

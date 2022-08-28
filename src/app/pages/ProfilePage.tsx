@@ -3,17 +3,19 @@ import { useAppSelector} from "../hooks";
 import {getUserState} from "../../store/user/userSlice";
 import Layout from "../../components/Layout/Layout";
 import UserDetails from "../../components/userProfile/UserDetails";
-//@ts-ignore
-import classes from '../../components/styles/Profile.module.scss'
 import AddressList from "../../components/userProfile/AddressList";
 import {IAdress} from "../../models/IAdress";
 import AddressForm from "../../components/userProfile/AddressForm";
 import {useNavigate} from "react-router";
+//@ts-ignore
+import classes from '../../components/styles/Profile.module.scss'
 
 export enum FormShowed{
     AddressForm,
     OrdersForm
 }
+
+//const classes = require('../../components/styles/Profile.module.scss')
 
 const ProfilePage = () => {
     const userState = useAppSelector(getUserState)

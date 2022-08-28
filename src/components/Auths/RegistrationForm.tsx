@@ -1,13 +1,13 @@
 import React, {ChangeEvent,useReducer, useRef, useState} from 'react';
-
 import Card from "../Card";
 import Input from "../ToolBar/Input";
 import Error from "../Error"
 import {IAuthFormProps} from "./LoginForm";
 import formReducer, {initialFormState} from "../../app/reducers/formReducer";
 import formValidateReducer, {initialFormValidityState} from "../../app/reducers/formValidateReducer";
-
-const classes = require('../styles/AuthForm.module.scss')
+//@ts-ignore
+import classes from '../styles/AuthForm.module.scss'
+//const classes = require('../styles/AuthForm.module.scss')
 
 const RegistrationForm = ({onSubmit,children}:IAuthFormProps) => {
     const [formState,dispatchForm] = useReducer(formReducer,initialFormState)

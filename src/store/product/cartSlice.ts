@@ -12,6 +12,9 @@ function calculatePrice(state:ICart){
     state.totalPrice = state.products.reduce((acc, product) =>acc+product.totalProductPrice,0)
     state.totalPrice=Number(state.totalPrice.toFixed(2))
 }
+function calculateTotalPriceProduct(product:ICartItem):number{
+    return parseFloat((product.count*product.product.price).toFixed(2))
+}
 
 const initialState:ICart = {
     products:[],
@@ -26,7 +29,7 @@ export const cartSlice = createSlice({
             let findedProduct = state.products.find(x=>x.product.id===product.id);
             if(findedProduct){
                 findedProduct.count++
-                findedProduct.totalProductPrice = parseFloat((findedProduct.count*findedProduct.product.price).toFixed(2))
+                findedProduct.totalProductPrice = calculateTotalPriceProduct(findedProduct)
             }else{
                 let cartItem:ICartItem = {product:product,totalProductPrice:product.price,count:1}
                 state.products.push(cartItem)
@@ -42,11 +45,19 @@ export const cartSlice = createSlice({
             let productId:number = action.payload
             state.products = state.products.filter(x=>x.product.id!==productId)
             calculatePrice(state)
+        },
+        decrementItemCount(state,action:PayloadAction<number>){
+            let productId:number = action.payload
+            const cartItem = state.products.find(x=>x.product.id===productId)
+            if(!cartItem) return state
+            cartItem.count--
+            cartItem.totalProductPrice = calculateTotalPriceProduct(cartItem)
+            calculatePrice(state)
         }
 
     }
 })
 
 export const getCartState = (state:RootState)=>state.cart
-export const {addToCart,dropState,removeFromCart} = cartSlice.actions
+export const {addToCart,dropState,removeFromCart,decrementItemCount} = cartSlice.actions
 export default cartSlice.reducer

@@ -5,8 +5,9 @@ import SmallCart from "../Products/SmallCart";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {getUserState, logout} from "../../store/user/userSlice";
 import Arrow, {Direction} from "../Arrow";
-
-const classes = require('../styles/Header.module.scss')
+//@ts-ignore
+import classes from '../styles/Header.module.scss'
+//const classes = require('../styles/Header.module.scss')
 
 const Header = () => {
     const [logOutVisible,setLogOutVisible]=useState(false)
