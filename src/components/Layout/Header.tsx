@@ -7,9 +7,12 @@ import {getUserState, logout} from "../../store/user/userSlice";
 import Arrow, {Direction} from "../Arrow";
 //@ts-ignore
 import classes from '../styles/Header.module.scss'
-//const classes = require('../styles/Header.module.scss')
 
-const Header = () => {
+export interface IHeaderProps{
+    onAboutClick:()=>void,
+}
+
+const Header = ({onAboutClick}:IHeaderProps) => {
     const [logOutVisible,setLogOutVisible]=useState(false)
     const dispatch = useAppDispatch()
     const userState = useAppSelector(getUserState)
@@ -32,21 +35,27 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
-                <Link to={"/"}>logo</Link>
+                <Link
+                    to={"/"}>
+                    Yeroshevich V.A.
+                </Link>
             </div>
             <div>
                 <ul className={classes.list}>
                     <li>
                         <Link
+                            onClick={()=>document.location.reload()}
                             to={"/"}>
                             Главная
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to={"/"}>
+                        <a
+                            style={{cursor:'pointer'}}
+                            onClick={onAboutClick}
+                        >
                             О нас
-                        </Link>
+                        </a>
                     </li>
 
                         {

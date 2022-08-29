@@ -4,9 +4,40 @@
 .footer{
   color:white;
   background-color: $secondColor;
-  box-shadow: 0px -1px 10px 5px gray;
-  min-height: 175px;
+  min-height: 200px;
   width: 100%;
   position: absolute;
   left: 0;
+  -webkit-box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29) inset;
+  -moz-box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29) inset;
+  box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29) inset;
+
+  .innerContent{
+    background-color: #1e65e3;
+    padding-inline: 2%;
+    padding-top: 0.5%;
+    padding-bottom: 1%;
+    margin-inline: 2%;
+    margin-top: 1.5%;
+    -webkit-box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 0px 14px 20px rgba(0, 0, 0, 0.29);
+    border-radius: 25px;
+    font:$font;
+    text-align: center;
+    .title{
+    }
+    .description{
+      font-size: 13pt;
+    }
+    .producedBy{
+      margin-top: 15px;
+      .links{
+        margin-top: 10px;
+        a{
+          margin-inline:15px;
+        }
+      }
+    }
+  }
 }

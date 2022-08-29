@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -7,12 +7,20 @@ export interface ILayoutProps{
 }
 
 const Layout = ({children}:ILayoutProps) => {
+    const footerRef = useRef<HTMLDivElement>(null)
+    const toFooter = ()=>{
+        if(footerRef !==null)
+            { // @ts-ignore
+                footerRef.current.scrollIntoView();
+            }
+    }
+
     return (
         <>
 
             {children}
-            <Header/>
-            <Footer/>
+            <Header onAboutClick={toFooter}/>
+            <Footer footerRef={footerRef}/>
         </>
     );
 };

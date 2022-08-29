@@ -5,12 +5,18 @@ import {useParams} from "react-router";
 import Layout from "../../components/Layout/Layout";
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {fetchProduct, getProductState} from "../../store/product/productSlice";
+import {addToCart} from "../../store/product/cartSlice";
 
 
 const ProductPage = () => {
     const dispatch = useAppDispatch()
     const productState = useAppSelector(getProductState)
     const {id} = useParams()
+    const addIntoCart = ()=>{
+        dispatch(addToCart(productState.product))
+    }
+
+
     useEffect(()=>{
         dispatch(fetchProduct(Number(id)))
     },[])
@@ -29,9 +35,13 @@ const ProductPage = () => {
                         </p>
                         <div className={classes.price}>
                             <div>Стоимость: {productState.product.price} руб.</div>
-                            <div><button>
-                                Добавить в корзину
-                            </button></div>
+                            <div>
+                                <button
+                                    onClick={addIntoCart}
+                                >
+                                    Добавить в корзину
+                                </button>
+                            </div>
                         </div>
                     </div>
 
