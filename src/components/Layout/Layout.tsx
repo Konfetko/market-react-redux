@@ -18,7 +18,11 @@ const Layout = memo(({children}:ILayoutProps) => {
     return (
         <>
 
-            {children}
+            {
+                <div style={{backgroundColor:"whitesmoke"}}>
+                    {children}
+                </div>
+            }
             <Header onAboutClick={toFooter}/>
             <Footer footerRef={footerRef}/>
         </>

@@ -1,5 +1,5 @@
 @import "Consts.module";
-$img-size:200px;
+$img-size:150px;
 @mixin pointer(){
   cursor: pointer;
 }
@@ -10,11 +10,12 @@ $img-size:200px;
   transition: transform .4s linear;
 }
 .card{
-  height: 380px;
-
+  padding: 5px;
+  width: 300px;
 }
 .productBlock{
   margin: 20px;
+  background-color: white;
   &:hover{
     cursor: pointer;
   }
@@ -29,14 +30,15 @@ $img-size:200px;
   border-radius: 25px;
   padding: 5px;
   background-color: #eeeaea;
-  width: 300px;
-  margin-bottom: 50px;
-  
+  width: 250px;
+  margin-bottom: 30px;
+
 }
 .titleBlock{
-  font-size: 16pt;
-  margin: 5px;
-  height: 70px;
+  font-size: 14pt;
+  margin: 15px 0px;
+  min-height: 70px;
+
 }
 .priceBlock{
   margin-top: 10px;
@@ -68,7 +70,7 @@ $img-size:200px;
 
 
 .center{
-  height: $img-size;
+  height: $img-size+50px;
   .front{
     @include frontBackCard;
     transform: perspective(600px) rotateY(0deg);
