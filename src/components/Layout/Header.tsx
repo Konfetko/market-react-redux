@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 
 import {Link} from "react-router-dom";
 import SmallCart from "../Products/SmallCart";
@@ -12,7 +12,7 @@ export interface IHeaderProps{
     onAboutClick:()=>void,
 }
 
-const Header = ({onAboutClick}:IHeaderProps) => {
+const Header = memo(({onAboutClick}:IHeaderProps) => {
     const [logOutVisible,setLogOutVisible]=useState(false)
     const dispatch = useAppDispatch()
     const userState = useAppSelector(getUserState)
@@ -44,7 +44,9 @@ const Header = ({onAboutClick}:IHeaderProps) => {
                 <ul className={classes.list}>
                     <li>
                         <Link
-                            onClick={()=>document.location.reload()}
+                            onClick={()=>window.scrollTo({
+                                top: 0
+                            })}
                             to={"/"}>
                             Главная
                         </Link>
@@ -118,6 +120,6 @@ const Header = ({onAboutClick}:IHeaderProps) => {
             </div>
         </header>
     );
-};
+});
 
 export default Header;

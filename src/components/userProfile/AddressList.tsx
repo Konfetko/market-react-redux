@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {IAdress} from "../../models/IAdress";
 import Address from "./Address";
 //@ts-ignore
@@ -10,7 +10,7 @@ export interface IAdressesProps{
     showForm:(address?:IAdress)=>void
 }
 
-const AddressList = ({adresses,showForm}:IAdressesProps) => {
+const AddressList = memo(({adresses,showForm}:IAdressesProps) => {
 
     return (
         <>
@@ -40,6 +40,6 @@ const AddressList = ({adresses,showForm}:IAdressesProps) => {
 
         </>
     );
-};
+});
 
 export default AddressList;

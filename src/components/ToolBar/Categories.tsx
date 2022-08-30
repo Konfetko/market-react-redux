@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {fetchProductCategories, getCategoriesState} from "../../store/product/categorySlice";
 //@ts-ignore
@@ -9,7 +9,7 @@ export interface ICategoryProps{
     handleCategory:(category:string)=>void
 }
 
-const Categories = ({handleCategory}:ICategoryProps) => {
+const Categories = memo(({handleCategory}:ICategoryProps) => {
 
     const category = useAppSelector(getCategoriesState)
     const dispatch = useAppDispatch()
@@ -37,6 +37,6 @@ const Categories = ({handleCategory}:ICategoryProps) => {
             </ul>
         </div>
     );
-};
+});
 
 export default Categories;

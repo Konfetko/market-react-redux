@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {IProduct} from "../../models/IProduct";
 import Card from "../Card";
 import {Link} from "react-router-dom";
@@ -14,7 +14,7 @@ export interface IProductProps{
     product:IProduct
 }
 
-const Product = ({product}:IProductProps) => {
+const Product =  memo(({product}:IProductProps) =>{
    const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
@@ -85,6 +85,6 @@ const Product = ({product}:IProductProps) => {
             </div>
         </Card>
     );
-};
+});
 
 export default Product;

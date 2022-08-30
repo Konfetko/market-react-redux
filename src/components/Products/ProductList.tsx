@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {fetchProducts, getProductsState} from "../../store/product/productsSlice";
 import Product from "./Product";
@@ -6,7 +6,7 @@ import Product from "./Product";
 import classes from '../styles/ProductList.module.scss'
 //const classes = require('../styles/ProductList.module.scss')
 
-const ProductList = () => {
+const ProductList = memo(() => {
     const store = useAppSelector(getProductsState)
     const dispatch = useAppDispatch()
     useEffect(()=>{
@@ -23,6 +23,6 @@ const ProductList = () => {
 
         </div>
     );
-};
+});
 
 export default ProductList;

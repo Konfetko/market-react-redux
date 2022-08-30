@@ -1,4 +1,4 @@
-import React, {LegacyRef} from 'react';
+import React, {LegacyRef, memo} from 'react';
 //@ts-ignore
 import classes from '../styles/Footer.module.scss'
 
@@ -7,7 +7,7 @@ export interface IFooterProps{
     footerRef:LegacyRef<HTMLDivElement>
 }
 
-const Footer = ({footerRef}:IFooterProps) => {
+const Footer = memo(({footerRef}:IFooterProps) => {
     return (
         <footer
             className={classes.footer}
@@ -42,6 +42,6 @@ const Footer = ({footerRef}:IFooterProps) => {
             </div>
         </footer>
     );
-};
+});
 
 export default Footer;

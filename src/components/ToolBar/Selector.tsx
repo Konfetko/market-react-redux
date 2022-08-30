@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {ISelect} from "../../models/ISelect";
 //@ts-ignore
 import classes from '../styles/Selector.module.scss'
@@ -9,7 +9,7 @@ export interface ISelectorProps{
     handleSelect:(event:React.ChangeEvent<HTMLSelectElement>)=>void
 }
 
-const Selector = ({selectors,handleSelect}:ISelectorProps) => {
+const Selector = memo(({selectors,handleSelect}:ISelectorProps) => {
 
     return (
         <div>
@@ -29,6 +29,6 @@ const Selector = ({selectors,handleSelect}:ISelectorProps) => {
             </div>
         </div>
     );
-};
+});
 
 export default Selector;

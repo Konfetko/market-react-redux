@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Selector from "./Selector";
 import {ISelect} from "../../models/ISelect";
 import Input from "./Input";
@@ -15,10 +15,10 @@ import classes from '../styles/ToolBar.module.scss'
 
 const ToolBar = () => {
     const [isOpenToolBar,setOpenToolBar] = useState(true)
-    const [selectors,setSelectors] = useState<ISelect[]>([
-                                                        {name:"Названию",value:"title"},
-                                                        {name:"Цене",value:"price"}
-                                                    ])
+    const selectors = useMemo<ISelect[]>(()=>  [
+        {name:"Названию",value:"title"},
+        {name:"Цене",value:"price"}
+    ],[])
     const [width,setWidth]= useState(window.innerWidth)
     const dispatch = useAppDispatch()
 

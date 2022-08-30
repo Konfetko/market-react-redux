@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {IUser} from "../../models/IUser";
 import {IAdress} from "../../models/IAdress";
 //@ts-ignore
@@ -10,7 +10,7 @@ export interface IUserDetailsProps {
     showForm:(address?:IAdress)=>void
 }
 
-const UserDetails = ({user,showForm}:IUserDetailsProps) => {
+const UserDetails = memo(({user,showForm}:IUserDetailsProps) => {
 
     return (
         <>
@@ -57,6 +57,6 @@ const UserDetails = ({user,showForm}:IUserDetailsProps) => {
 
         </>
     );
-};
+});
 
 export default UserDetails;

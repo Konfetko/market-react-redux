@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import Card from "../Card";
 import {IAdress} from "../../models/IAdress";
 //@ts-ignore
@@ -11,7 +11,7 @@ export interface IAdressProps{
     onOpenChangeForm:(adress:IAdress)=>void
 }
 
-const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
+const Address = memo(({adress,onOpenChangeForm}:IAdressProps) => {
     const getString=(str:string)=>{
         return str.length >11 ? str.slice(0,11)+'...':str
     }
@@ -48,6 +48,6 @@ const Address = ({adress,onOpenChangeForm}:IAdressProps) => {
 
         </Card>
     );
-};
+});
 
 export default Address;

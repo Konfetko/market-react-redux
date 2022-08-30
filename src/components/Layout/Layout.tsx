@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {memo, useRef} from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -6,7 +6,7 @@ export interface ILayoutProps{
     children:React.ReactNode
 }
 
-const Layout = ({children}:ILayoutProps) => {
+const Layout = memo(({children}:ILayoutProps) => {
     const footerRef = useRef<HTMLDivElement>(null)
     const toFooter = ()=>{
         if(footerRef !==null)
@@ -23,6 +23,6 @@ const Layout = ({children}:ILayoutProps) => {
             <Footer footerRef={footerRef}/>
         </>
     );
-};
+});
 
 export default Layout;
