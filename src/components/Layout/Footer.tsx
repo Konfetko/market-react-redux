@@ -33,7 +33,7 @@ const Footer = ({footerRef}:IFooterProps) => {
                             <img src={require('../images/GitHub-Mark-Light-64px.png')} alt=""/>
                         </a>
                         <a
-                            href="https://t.me/K0nfetk0">
+                            href="https://t.me/Konfetk0">
                             <img src={require('../images/logo_telegram_airplane_air_plane_paper_airplane_icon_143169.png')} alt=""/>
                         </a>
 
